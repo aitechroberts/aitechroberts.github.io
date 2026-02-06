@@ -27,7 +27,7 @@ back_to_top: true # set to false to disable the back to top button
 # Enable the sections you need
 news_limit: 3
 socials: true
-newsletter: false
+
 
 # Footer settings
 footer_text: >
