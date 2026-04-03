@@ -6,7 +6,7 @@ subtitle: National Security Technologist
 
 profile:
   align: right
-  image: picture.jpg
+  image: picture.png
   image_circular: True # crops the image to make it circular
   more_info: >
     <p>Pittsburgh, PA</p>
