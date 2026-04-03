@@ -15,7 +15,7 @@ email: jrobert3@andrew.cmu
 # contact_note: >
 #   You can even add a little note about which of these is the best way to reach you.
 description: AI Engineering Graduate Student & U.S. Army AI Scholar
-url: https:aitechroberts.github.io
+url: https://aitechroberts.github.io
 baseurl:  # the subpath of your site, e.g. /blog/. Leave blank for root
 back_to_top: true # set to false to disable the back to top button
 
