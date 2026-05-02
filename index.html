@@ -53,68 +53,84 @@
       <section id="projects" class="section section-pad alt-bg">
         <div class="section-heading centered">
           <p class="eyebrow">Projects</p>
-          <h2>Selected Engineering Work</h2>
+          <h2>Selected Projects</h2>
           <p>
-            Four polished project descriptions. Use each card to write a structured overview, your contribution, and an outcome or evaluation.
+            Six polished project cards. Click any card to open a deeper description on this page.
           </p>
         </div>
 
         <div class="project-grid">
-          <article class="project-card">
-            <div class="media-placeholder">Add image or media</div>
+          <button class="project-card" type="button" data-project="project1">
+            <img class="project-image" src="assets/project1.png" alt="Placeholder image for Project 1" />
             <div class="project-body">
               <p class="project-kicker">[Short objective or social value statement]</p>
               <h3>[Project Title 1]</h3>
               <p>
-                [Write the main project description here. A strong structure is: context/problem, what you designed or investigated, what methods you used, and why it mattered.]
+                [Short card summary. Click to open the full project description.]
               </p>
-              <p><strong>Role:</strong> [What did you personally do?]</p>
-              <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
-              <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+              <span class="project-link">Read more</span>
             </div>
-          </article>
+          </button>
 
-          <article class="project-card">
-            <div class="media-placeholder">Add image or media</div>
+          <button class="project-card" type="button" data-project="project2">
+            <img class="project-image" src="assets/project2.png" alt="Placeholder image for Project 2" />
             <div class="project-body">
               <p class="project-kicker">[Short objective or social value statement]</p>
               <h3>[Project Title 2]</h3>
               <p>
-                [Write the main project description here. Keep it concise, but give enough detail to show the objective, your approach, and your contribution.]
+                [Short card summary. Click to open the full project description.]
               </p>
-              <p><strong>Role:</strong> [What did you personally do?]</p>
-              <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
-              <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+              <span class="project-link">Read more</span>
             </div>
-          </article>
+          </button>
 
-          <article class="project-card">
-            <div class="media-placeholder">Add image or media</div>
+          <button class="project-card" type="button" data-project="project3">
+            <img class="project-image" src="assets/project3.png" alt="Placeholder image for Project 3" />
             <div class="project-body">
               <p class="project-kicker">[Short objective or social value statement]</p>
               <h3>[Project Title 3]</h3>
               <p>
-                [Write the main project description here. Use this space to emphasize the skills that matter most to the employers you discuss in your memo.]
+                [Short card summary. Click to open the full project description.]
               </p>
-              <p><strong>Role:</strong> [What did you personally do?]</p>
-              <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
-              <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+              <span class="project-link">Read more</span>
             </div>
-          </article>
+          </button>
 
-          <article class="project-card">
-            <div class="media-placeholder">Add image or media</div>
+          <button class="project-card" type="button" data-project="project4">
+            <img class="project-image" src="assets/project4.png" alt="Placeholder image for Project 4" />
             <div class="project-body">
               <p class="project-kicker">[Short objective or social value statement]</p>
               <h3>[Project Title 4]</h3>
               <p>
-                [Write the main project description here. If this was a design project, include how effective the final design was and how you evaluated it.]
+                [Short card summary. Click to open the full project description.]
               </p>
-              <p><strong>Role:</strong> [What did you personally do?]</p>
-              <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
-              <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+              <span class="project-link">Read more</span>
             </div>
-          </article>
+          </button>
+
+          <button class="project-card" type="button" data-project="project5">
+            <img class="project-image" src="assets/project5.png" alt="Placeholder image for Project 5" />
+            <div class="project-body">
+              <p class="project-kicker">[Short objective or social value statement]</p>
+              <h3>[Project Title 5]</h3>
+              <p>
+                [Short card summary. Click to open the full project description.]
+              </p>
+              <span class="project-link">Read more</span>
+            </div>
+          </button>
+
+          <button class="project-card" type="button" data-project="project6">
+            <img class="project-image" src="assets/project6.png" alt="Placeholder image for Project 6" />
+            <div class="project-body">
+              <p class="project-kicker">[Short objective or social value statement]</p>
+              <h3>[Project Title 6]</h3>
+              <p>
+                [Short card summary. Click to open the full project description.]
+              </p>
+              <span class="project-link">Read more</span>
+            </div>
+          </button>
         </div>
       </section>
 
@@ -167,5 +183,133 @@
     <footer class="footer">
       <p>© <span id="year">2026</span> Jonathan Roberts. Built with simple static HTML and CSS.</p>
     </footer>
+
+    <div class="project-modal" id="project-modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" aria-label="Close project details" data-close-modal>&times;</button>
+        <img class="modal-image" id="modal-image" src="assets/project1.png" alt="" />
+        <p class="project-kicker" id="modal-kicker"></p>
+        <h2 id="modal-title"></h2>
+        <div class="modal-content" id="modal-content"></div>
+      </section>
+    </div>
+
+    <script>
+      const projectDetails = {
+        project1: {
+          title: "[Project Title 1]",
+          kicker: "[Short objective or social value statement]",
+          image: "assets/project1.png",
+          alt: "Placeholder image for Project 1",
+          body: `
+            <p>[Write the full project description here. A good structure is context/problem, what you built or analyzed, how you approached it, and why it mattered.]</p>
+            <p><strong>Role:</strong> [What did you personally do?]</p>
+            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
+            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+          `,
+        },
+        project2: {
+          title: "[Project Title 2]",
+          kicker: "[Short objective or social value statement]",
+          image: "assets/project2.png",
+          alt: "Placeholder image for Project 2",
+          body: `
+            <p>[Write the full project description here. Use this space for the deeper IMRD or IDEC-style description.]</p>
+            <p><strong>Role:</strong> [What did you personally do?]</p>
+            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
+            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+          `,
+        },
+        project3: {
+          title: "[Project Title 3]",
+          kicker: "[Short objective or social value statement]",
+          image: "assets/project3.png",
+          alt: "Placeholder image for Project 3",
+          body: `
+            <p>[Write the full project description here. Emphasize the skills that matter to the employers discussed in your memo.]</p>
+            <p><strong>Role:</strong> [What did you personally do?]</p>
+            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
+            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+          `,
+        },
+        project4: {
+          title: "[Project Title 4]",
+          kicker: "[Short objective or social value statement]",
+          image: "assets/project4.png",
+          alt: "Placeholder image for Project 4",
+          body: `
+            <p>[Write the full project description here. If this was a design project, include how effective the final design was and how you evaluated it.]</p>
+            <p><strong>Role:</strong> [What did you personally do?]</p>
+            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
+            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+          `,
+        },
+        project5: {
+          title: "[Project Title 5]",
+          kicker: "[Short objective or social value statement]",
+          image: "assets/project5.png",
+          alt: "Placeholder image for Project 5",
+          body: `
+            <p>[Write the full project description here. Connect the project to a concrete engineering, technical, or organizational problem.]</p>
+            <p><strong>Role:</strong> [What did you personally do?]</p>
+            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
+            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+          `,
+        },
+        project6: {
+          title: "[Project Title 6]",
+          kicker: "[Short objective or social value statement]",
+          image: "assets/project6.png",
+          alt: "Placeholder image for Project 6",
+          body: `
+            <p>[Write the full project description here. Use concise paragraphs that make your objective, contribution, and result easy to skim.]</p>
+            <p><strong>Role:</strong> [What did you personally do?]</p>
+            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
+            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+          `,
+        },
+      };
+
+      const modal = document.querySelector("#project-modal");
+      const modalImage = document.querySelector("#modal-image");
+      const modalKicker = document.querySelector("#modal-kicker");
+      const modalTitle = document.querySelector("#modal-title");
+      const modalContent = document.querySelector("#modal-content");
+      const projectCards = document.querySelectorAll(".project-card");
+
+      function openProjectModal(projectId) {
+        const project = projectDetails[projectId];
+        if (!project) return;
+
+        modalImage.src = project.image;
+        modalImage.alt = project.alt;
+        modalKicker.textContent = project.kicker;
+        modalTitle.textContent = project.title;
+        modalContent.innerHTML = project.body;
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+        modal.querySelector(".modal-close").focus();
+      }
+
+      function closeProjectModal() {
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      }
+
+      projectCards.forEach((card) => {
+        card.addEventListener("click", () => openProjectModal(card.dataset.project));
+      });
+
+      document.querySelectorAll("[data-close-modal]").forEach((button) => {
+        button.addEventListener("click", closeProjectModal);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+          closeProjectModal();
+        }
+      });
+    </script>
   </body>
 </html>

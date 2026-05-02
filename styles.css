@@ -274,7 +274,22 @@ h3 {
 }
 
 .project-card {
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--border);
+  color: inherit;
+  font: inherit;
+  text-align: left;
   overflow: hidden;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  border-color: rgba(37, 99, 235, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.14);
 }
 
 .media-placeholder {
@@ -311,6 +326,13 @@ h3 {
 
 .project-body strong {
   color: var(--text);
+}
+
+.project-link {
+  display: inline-flex;
+  margin-top: 0.25rem;
+  color: var(--accent-dark);
+  font-weight: 800;
 }
 
 .callout-panel {
@@ -358,6 +380,90 @@ h3 {
 .footer p {
   margin: 0;
   font-size: 0.92rem;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.project-modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.68);
+  backdrop-filter: blur(8px);
+}
+
+.modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 100%);
+  max-height: min(860px, calc(100vh - 4rem));
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: 0 36px 90px rgba(15, 23, 42, 0.35);
+}
+
+.modal-close {
+  position: sticky;
+  top: 1rem;
+  float: right;
+  width: 42px;
+  height: 42px;
+  margin: 1rem 1rem -3rem 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.modal-image {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 38vw, 380px);
+  object-fit: cover;
+}
+
+.modal-dialog > .project-kicker,
+.modal-dialog > h2,
+.modal-content {
+  margin-left: clamp(1.4rem, 4vw, 3rem);
+  margin-right: clamp(1.4rem, 4vw, 3rem);
+}
+
+.modal-dialog > .project-kicker {
+  margin-top: 2rem;
+}
+
+.modal-dialog > h2 {
+  margin-bottom: 1.2rem;
+}
+
+.modal-content {
+  padding-bottom: 2rem;
+}
+
+.modal-content strong {
+  color: var(--text);
 }
 
 @media (max-width: 860px) {
@@ -409,5 +515,9 @@ h3 {
   .project-body,
   .callout-panel {
     padding: 1.25rem;
+  }
+
+  .project-modal {
+    padding: 1rem;
   }
 }
