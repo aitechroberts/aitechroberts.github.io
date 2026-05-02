@@ -75,7 +75,7 @@
             <div class="project-body">
               <h3>SemanticSpace</h3>
               <p>
-                Today's robots inherit billion-parameter language models trained on internet-scale data — Shakespeare, Reddit, French cinema, all of it — even when deployed for a single bounded task like fetching a tool from a workbench or guiding a wheelchair through a hospital corridor. This overbuilt language layer drives up inference cost, demands cloud infrastructure, and consumes the GPU memory that perception and planning genuinely need. Bringing household and assistive robotics into ordinary homes depends on shrinking that footprint without sacrificing the natural-language interface non-technical users rely on. This project set out to empirically determine the minimum language requirement for robotic scene understanding in a given deployment context, and to identify which categories of language reasoning genuinely benefit from a larger decoder.
+                Today's robots inherit internet-scale language models even when deployed for bounded tasks like fetching tools or navigating a hospital corridor. I upgraded a 3D scene graph pipeline to test how much language reasoning robotic scene understanding actually needs, using modular segmentation, embedding, captioning, and decoder-ablation components. The resulting hierarchy improved Space3D-Bench exact-match accuracy from 5.98% to 34.68%, showing that better scene structure can reduce dependence on oversized cloud-scale decoders.
               </p>
               <span class="project-link">Read more</span>
             </div>
@@ -86,7 +86,7 @@
             <div class="project-body">
               <h3>Speculative Diffusion</h3>
               <p>
-                Diffusion models produce high-quality samples but require dozens of neural network evaluations (NFEs) to do so, making inference slow and expensive. Richardson Extrapolation (RX-DPM), a recent ICLR 2025 advance, promised to raise the order of accuracy of existing ODE samplers without adding NFEs — yet it fails catastrophically at the very low step counts (1–3 NFE) where speed matters most, producing pure noise instead of images. This project set out to diagnose that failure and design a fix that preserves RX-DPM's accuracy gains in the low-NFE regime.
+                Diffusion models produce strong samples, but their high neural function evaluation cost makes low-latency generation difficult. I built DWS-RX-DPM, a training-free PyTorch inference pipeline that warm-starts Richardson Extrapolation with a distilled estimate so the sampler integrates a shorter, better-conditioned trajectory. The method recovers coherent 3-NFE samples where standalone RX-DDIM collapses into noise, preserving RX-DPM's speed promise in the regime where speed actually matters.
 
               </p>
               <span class="project-link">Read more</span>
@@ -98,7 +98,7 @@
             <div class="project-body">
               <h3>Agentic Government Proposal Generator</h3>
               <p>
-                Conventional proposal teams rely on manual review of government RFPs, with analysts reading hundreds of pages to identify SHALL/MUST/SHOULD statements, format rules, page limits, deadlines, and certification requirements before assembling a compliance matrix by hand. This project set out to replace that labor-intensive workflow with an observable, optimizable extraction pipeline that turns RFP PDFs into a citation-grounded compliance matrix automatically.
+                Proposal teams still spend hours manually reading government RFPs to extract SHALL/MUST/SHOULD requirements, formatting rules, deadlines, and certification constraints. I built an observable Python pipeline using regex, DSPy, Azure OpenAI, Azure Document Intelligence, and Langfuse to convert opportunity documents into citation-grounded compliance matrices. The system raised extraction accuracy from roughly 60-75% to 85-95%, cut per-page cost by about half, and reduced opportunity ingestion from several minutes to about 30 seconds.
 
               </p>
               <span class="project-link">Read more</span>
@@ -110,7 +110,7 @@
             <div class="project-body">
               <h3>Edge-Deployable CamoGPT</h3>
               <p>
-                Conventional access to large language models in the Army depends on persistent, high-bandwidth connectivity to cloud data centers, which is a non-starter for forward-deployed units operating in contested or disconnected environments. The original CamoGPT proved the value of a tailored Army-specific assistant, but its deployment model assumed reliable reach-back to centralized infrastructure. This project set out to take CamoGPT with retrieval-augmented generation (RAG) and make it deployable on portable edge hardware so that a Division or Corps staff could carry the capability with them into the field.
+                Army access to large language models often assumes persistent cloud connectivity, which breaks down for forward-deployed units in contested or disconnected environments. As Technical Program Manager on a 4-person team, I helped turn CamoGPT with RAG into a hardware-agnostic edge application tested across AWS, Azure, and GCP and grounded in unit-specific documents. The final system deployed to an Amazon Snowball Edge at $27 per million tokens, giving Division and Corps staffs a portable AI assistant that can travel with the unit.
 
               </p>
               <span class="project-link">Read more</span>
@@ -122,7 +122,7 @@
             <div class="project-body">
               <h3>Echelon of Automation</h3>
               <p>
-                Conventional discussion of accountability failures in U.S. military aid focuses on whether the units on the ground are following the regulations in front of them. The 2023 DoD OIG report on the Army's execution of over $34 billion in materiel aid to the Ukrainian Armed Forces takes exactly that approach, cataloguing tactical-level shortfalls in how units track personnel and equipment. This article set out to reframe the problem one level up: the accountability gaps the OIG observes are downstream symptoms of the information systems governing large-scale materiel aid transfer, not isolated unit-level lapses — and that distinction matters for how the U.S. prepares for future Irregular Warfare.
+                Accountability failures in large-scale military aid are often framed as unit-level compliance problems, but the Ukraine aid mission exposed deeper limits in the information systems governing materiel transfer. In this article, I used the Army's execution of more than $34 billion in aid as a case study to reframe those gaps as upstream system-design constraints rather than isolated tactical lapses. The analysis argues that materiel aid transfer is an Irregular Warfare capability, and that future proxy-support missions will depend on information infrastructure as much as on the equipment being delivered.
 
               </p>
               <span class="project-link">Read more</span>
@@ -134,7 +134,7 @@
             <div class="project-body">
               <h3>Measuring Contract Service Performance</h3>
               <p>
-                Defense contracting discussions tend to center on weapons platforms — fighters, ships, tanks — and the long acquisition timelines that produce them. But by 2018 services accounted for over 41% of DoD contract obligations: equipment maintenance, logistics, software, server space, construction, and increasingly data analytics and cloud computing. Services are harder to define and measure than products, which makes performance evaluation across contracting offices systematically harder than it is for the platform side. This report set out to actually measure that performance and identify what drives the differences between offices.
+                Defense acquisition debates usually center on weapons platforms, but services accounted for more than 41% of DoD contract obligations by 2018. I helped evaluate roughly one million DoD contracts to test how service complexity, contracting-office capacity, and prior vendor-office relationships shape performance. The report found that longer shared histories correlate with better outcomes while public data still fails to explain office-level capacity differences, pointing to a transparency gap in how DoD manages service acquisition.
               </p>
               <span class="project-link">Read more</span>
             </div>
