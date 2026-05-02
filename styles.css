@@ -122,6 +122,18 @@ h3 {
   gap: 3rem;
 }
 
+.profile-photo {
+  display: block;
+  width: clamp(120px, 18vw, 180px);
+  height: clamp(120px, 18vw, 180px);
+  margin-bottom: 1.75rem;
+  border: 6px solid var(--surface);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+}
+
 .hero-tagline {
   max-width: 760px;
   margin-top: 1.4rem;

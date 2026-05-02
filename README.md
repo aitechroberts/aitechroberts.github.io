@@ -7,12 +7,15 @@ This repository is a simple static one-page portfolio for GitHub Pages. There is
 - `index.html`: all page content and placeholders.
 - `styles.css`: all site styling.
 - `.nojekyll`: tells GitHub Pages to serve the static files directly without Jekyll processing.
+- `assets/picture.png`: replace this placeholder with your final profile picture.
 - `assets/resume.pdf`: replace this placeholder with your final one-page resume.
 - `assets/justification-memo.pdf`: replace this placeholder with your final justification memo.
 
 ## How to edit content
 
-Open `index.html` and replace bracketed placeholder text like `[Your Name]`, `[Project Title 1]`, and `[Write the main project description here...]` with your final content.
+Open `index.html` and replace bracketed placeholder text like `[Project Title 1]` and `[Write the main project description here...]` with your final content.
+
+To update the profile image, replace `assets/picture.png` with your own image using the same filename. The site will crop it into a circle automatically.
 
 For project images, add image files to `assets/` and replace each `<div class="media-placeholder">Add image or media</div>` with an image tag, for example:
 
