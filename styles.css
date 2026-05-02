@@ -460,6 +460,10 @@ body.modal-open {
   padding-bottom: 2rem;
 }
 
+.modal-content p {
+  margin-bottom: 1.25rem;
+}
+
 .modal-content strong {
   color: var(--text);
 }
