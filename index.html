@@ -21,6 +21,7 @@
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="#top">Jonathan Roberts</a>
         <div class="nav-links">
+          <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#resume">Resume</a>
           <a href="#memo">Memo</a>
@@ -38,16 +39,22 @@
           <p class="hero-tagline">AI Engineer focused on autonomous systems, platform architecture, and high-impact defense technology.</p>
           <div class="button-row">
             <a class="button primary" href="#projects">View Projects</a>
+            <a class="button" href="assets/resume.pdf">Download Resume</a>
             <a class="button ghost" href="assets/justification-memo.pdf">View Memo</a>
           </div>
         </div>
-        <aside class="hero-card" aria-label="Professional introduction">
-          <span class="card-label">About Jonathan</span>
-          <p class="hero-copy">
+      </section>
+
+      <section id="about" class="section section-pad">
+        <div class="section-heading centered">
+          <p class="eyebrow">About Me</p>
+          <h2>Professional Introduction</h2>
+        </div>
+        <div class="about-panel">
+          <p>
             Leveraging an academic foundation in international economics alongside advanced AI Engineering research at CMU, I design systems to solve emerging problems with real-world utility. I want to lead the development of highly reliable AI platforms that integrate into existing security software supply chains and drive the mission forward to serve the warfighter in the defending the United States against the conflicts of the near future.
           </p>
-          <a class="button primary" href="assets/resume.pdf">Download Resume</a>
-        </aside>
+        </div>
       </section>
 
       <section id="projects" class="section section-pad alt-bg">
@@ -63,7 +70,6 @@
           <button class="project-card" type="button" data-project="project1">
             <img class="project-image" src="assets/project1.png" alt="Placeholder image for Project 1" />
             <div class="project-body">
-              <p class="project-kicker">[Short objective or social value statement]</p>
               <h3>[Project Title 1]</h3>
               <p>
                 [Short card summary. Click to open the full project description.]
@@ -75,7 +81,6 @@
           <button class="project-card" type="button" data-project="project2">
             <img class="project-image" src="assets/project2.png" alt="Placeholder image for Project 2" />
             <div class="project-body">
-              <p class="project-kicker">[Short objective or social value statement]</p>
               <h3>[Project Title 2]</h3>
               <p>
                 [Short card summary. Click to open the full project description.]
@@ -87,7 +92,6 @@
           <button class="project-card" type="button" data-project="project3">
             <img class="project-image" src="assets/project3.png" alt="Placeholder image for Project 3" />
             <div class="project-body">
-              <p class="project-kicker">[Short objective or social value statement]</p>
               <h3>[Project Title 3]</h3>
               <p>
                 [Short card summary. Click to open the full project description.]
@@ -99,7 +103,6 @@
           <button class="project-card" type="button" data-project="project4">
             <img class="project-image" src="assets/project4.png" alt="Placeholder image for Project 4" />
             <div class="project-body">
-              <p class="project-kicker">[Short objective or social value statement]</p>
               <h3>[Project Title 4]</h3>
               <p>
                 [Short card summary. Click to open the full project description.]
@@ -111,7 +114,6 @@
           <button class="project-card" type="button" data-project="project5">
             <img class="project-image" src="assets/project5.png" alt="Placeholder image for Project 5" />
             <div class="project-body">
-              <p class="project-kicker">[Short objective or social value statement]</p>
               <h3>[Project Title 5]</h3>
               <p>
                 [Short card summary. Click to open the full project description.]
@@ -123,7 +125,6 @@
           <button class="project-card" type="button" data-project="project6">
             <img class="project-image" src="assets/project6.png" alt="Placeholder image for Project 6" />
             <div class="project-body">
-              <p class="project-kicker">[Short objective or social value statement]</p>
               <h3>[Project Title 6]</h3>
               <p>
                 [Short card summary. Click to open the full project description.]
@@ -198,75 +199,70 @@
     <script>
       const projectDetails = {
         project1: {
-          title: "[Project Title 1]",
-          kicker: "[Short objective or social value statement]",
+          title: "SemanticSpace",
           image: "assets/project1.png",
           alt: "Placeholder image for Project 1",
           body: `
-            <p>[Write the full project description here. A good structure is context/problem, what you built or analyzed, how you approached it, and why it mattered.]</p>
-            <p><strong>Role:</strong> [What did you personally do?]</p>
-            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
-            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+            Today's robots inherit billion-parameter language models trained on internet-scale data — Shakespeare, Reddit, French cinema, all of it — even when deployed for a single bounded task like fetching a tool from a workbench or guiding a wheelchair through a hospital corridor. This overbuilt language layer drives up inference cost, demands cloud infrastructure, and consumes the GPU memory that perception and planning genuinely need. Bringing household and assistive robotics into ordinary homes depends on shrinking that footprint without sacrificing the natural-language interface non-technical users rely on. This project set out to empirically determine the minimum language requirement for robotic scene understanding in a given deployment context, and to identify which categories of language reasoning genuinely benefit from a larger decoder.
+The system was built by upgrading the open-source NeuroNav ConceptGraphs codebase in PyTorch into a fully modular 3D scene graph pipeline that functions as a controlled experimental instrument: every component — segmentation, embedding, captioning, reasoning — can be swapped without retraining the others. The pipeline reconstructs scenes from RGB-D streams, uses SAM2 for class-agnostic segmentation, fuses multi-view CLIP features with an entropy-based best-view selector, and constructs a hierarchical plane-enhanced scene graph that anchors objects to detected walls, floors, and ceilings. A task-adaptive subgraph extractor then feeds only the query-relevant portion of the graph to a swappable language model at inference time. To stress-test the language layer, the pipeline supports decoder ablation across model sizes from 135M to 1.5B parameters and across four reasoning categories — descriptive, spatial, affordance, and negation. Two custom training data formats — PIQA-Cap, which presents physical commonsense as declarative explanations, and NegCap, which provides negation-enriched projector alignment data — were introduced to test whether dataset format outweighs model scale at sub-1B sizes. Evaluation is conducted on Space3D-Bench for spatial reasoning and ScanQA for visual question answering.
+The hierarchical scene graph plus task-adaptive subgraph extraction lifted exact-match accuracy on Space3D-Bench from 5.98% on the flat ConceptGraphs baseline to 34.68% — a 28.7-point absolute improvement that confirms scene-graph structure carries reasoning load that would otherwise demand a larger language model. Decoder ablation revealed that descriptive and spatial queries can be handled competently at 135M parameters when the scene graph is sufficiently structured, while negation queries followed the U-shaped scaling curve predicted in the literature, requiring either targeted training data or a decoder above a threshold size. The modular design also enabled the first direct comparison of three sub-2B vision-language models — Qwen-VL, LLaVA, and a NegCap-aligned variant — on identical scene graph input, an ablation that is novel in the literature and that the architecture supports trivially.
+Treating the scene graph as a laboratory instrument rather than as a fixed deployment artifact made it possible to map, rather than assume, the boundary where embedding-only retrieval fails and language reasoning becomes necessary. The empirical result is a path toward edge-deployable humanoid robots that carry compact, deployment-specific language models instead of cloud-scale decoders: lower latency, lower cost, and more model capacity left over for the perception and planning that genuinely need it. The next phase of work extends decoder ablation to dynamic 4D scenes and tests whether the minimum-size findings generalize from indoor scans to outdoor environments where scene graph schemas are less stable.
           `,
         },
         project2: {
-          title: "[Project Title 2]",
-          kicker: "[Short objective or social value statement]",
+          title: "Speculative Diffusion",
           image: "assets/project2.png",
           alt: "Placeholder image for Project 2",
           body: `
-            <p>[Write the full project description here. Use this space for the deeper IMRD or IDEC-style description.]</p>
-            <p><strong>Role:</strong> [What did you personally do?]</p>
-            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
-            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+            Diffusion models produce high-quality samples but require dozens of neural network evaluations (NFEs) to do so, making inference slow and expensive. Richardson Extrapolation (RX-DPM), a recent ICLR 2025 advance, promised to raise the order of accuracy of existing ODE samplers without adding NFEs — yet it fails catastrophically at the very low step counts (1–3 NFE) where speed matters most, producing pure noise instead of images. This project set out to diagnose that failure and design a fix that preserves RX-DPM's accuracy gains in the low-NFE regime.
+Built DWS-RX-DPM (Distillation Warm-Started RX-DPM), a training-free inference pipeline implemented in PyTorch on top of a DDIM/Progressive Distillation codebase trained on CelebA 64×64. The method uses a 1-step distilled model to produce a coarse but structurally coherent estimate from Gaussian noise, re-noises that estimate to an intermediate timestep on the diffusion forward process, then runs Richardson Extrapolation only over the short residual trajectory — using the distilled output not for its quality but as a geometric preconditioner that shortens the ODE segment RX-DPM has to integrate. The full benchmark suite (KID and L2 metrics across 10 method-and-step-count configurations) was parallelized across L40S containers on Modal for reproducible evaluation.
+A condition-number analysis of the Richardson 2×2 linear system shows the conditioning factor κ = 1/|1−S| collapses from ill-conditioned (κ ≫ 1, starting from t=1) to well-conditioned (κ ≈ 2–3, starting from t≈0.3), giving a formal mathematical justification for why warm-starting works rather than treating the re-noising step as a heuristic. Empirically, DWS-RX-DPM at a 3-NFE total budget recovers recognizable, structurally coherent samples in the regime where standalone RX-DDIM produces noise, with optimal τ falling in the predicted [0.15, 0.40] range across an 8-condition ablation that isolates the contribution of each component.
+The framing of distillation as a curvature-reduction preconditioner for extrapolation samplers — rather than as an endpoint or teacher signal — does not appear in prior work (RX-DPM, FSampler, Distillation++) and composes cleanly with LCSC weight-averaging to form a PD + LCSC + DWS-RX stack where each component plays a non-redundant role. Because the method is training-free and operates purely at inference time on latent tensors, it is portable to any DDIM, EDM, or flow-matching backbone, offering a path to lower-cost generation without retraining the underlying model.
           `,
         },
         project3: {
-          title: "[Project Title 3]",
-          kicker: "[Short objective or social value statement]",
+          title: "Agentic Government Proposal Generator",
           image: "assets/project3.png",
           alt: "Placeholder image for Project 3",
           body: `
-            <p>[Write the full project description here. Emphasize the skills that matter to the employers discussed in your memo.]</p>
-            <p><strong>Role:</strong> [What did you personally do?]</p>
-            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
-            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+            Conventional proposal teams rely on manual review of government RFPs, with analysts reading hundreds of pages to identify SHALL/MUST/SHOULD statements, format rules, page limits, deadlines, and certification requirements before assembling a compliance matrix by hand. This project set out to replace that labor-intensive workflow with an observable, optimizable extraction pipeline that turns RFP PDFs into a citation-grounded compliance matrix automatically.
+Built an end-to-end system in Python combining a regex pre-pass for cheap high-precision wins with a three-stage DSPy 3 program (Extract → Classify → Ground) backed by Azure OpenAI, with strict JSON outputs enforced via JSONAdapter for downstream parsing reliability. A two-tier intelligent document loader auto-detects scanned government forms (DD Form 254, etc.) and routes them to Azure Document Intelligence for structured field, table, and checkbox extraction, while standard text PDFs use free pypdf parsing—keeping roughly 80-90% of pages on the cheap path. A HigherGov API integration ingests opportunity documents directly from an opportunity ID, eliminating manual download-and-upload steps. Outputs ship as JSON, CSV, and stakeholder-friendly Excel matrices to Azure Blob Storage, with every stage traced through Langfuse v3 for token, cost, and confidence observability.
+A two-phase deployment pattern—offline DSPy compilation with BootstrapFewShot/MIPROv2 against a small gold-labeled dataset, followed by fast inference in production—delivered measurable gains over the unoptimized baseline. Extraction accuracy moved from roughly 60-75% to 85-95%, per-page latency dropped from 5-10 seconds to 2-4 seconds, and per-page cost fell by about 50%. The end-user workflow for ingesting an RFP collapsed from a 3-5 minute manual upload sequence to roughly 30 seconds via opportunity ID paste.
+The POC is containerized and deployed on Azure Container Apps, with a planned Phase 3 orchestration layer in Prefect for decoupled, parallelizable batch processing. Beyond the time savings, the citation-grounded outputs and full Langfuse trace history give proposal teams an auditable record of where every requirement came from, turning compliance review from a bottleneck into a reviewable, improvable artifact.
           `,
         },
         project4: {
-          title: "[Project Title 4]",
+          title: "Edge-Deployable CamoGPT with RAG for Disconnected Army Operations",
           kicker: "[Short objective or social value statement]",
           image: "assets/project4.png",
           alt: "Placeholder image for Project 4",
           body: `
-            <p>[Write the full project description here. If this was a design project, include how effective the final design was and how you evaluated it.]</p>
-            <p><strong>Role:</strong> [What did you personally do?]</p>
-            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
-            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+            Conventional access to large language models in the Army depends on persistent, high-bandwidth connectivity to cloud data centers, which is a non-starter for forward-deployed units operating in contested or disconnected environments. The original CamoGPT proved the value of a tailored Army-specific assistant, but its deployment model assumed reliable reach-back to centralized infrastructure. This project set out to take CamoGPT with retrieval-augmented generation (RAG) and make it deployable on portable edge hardware so that a Division or Corps staff could carry the capability with them into the field.
+Served as the Technical Program Manager on a 4-person software team responsible for the full development and deployment lifecycle. The team designed the application against a hardware-agnostic architecture, developing and testing across multiple cloud environments and cloud service providers (AWS, Azure, and GCP) so that no single vendor or hardware profile became a deployment blocker. The RAG layer was tuned to work against unit-specific document corpora, allowing each deploying organization to ground model outputs in their own doctrine, SOPs, and operational context rather than relying solely on the base model's training data. Coordinated requirements, sprint cadence, and stakeholder communication across the team while interfacing with Army end users to validate that the workflow-enhancement use cases (drafting, summarization, doctrinal lookup) actually held up under tactical constraints.
+The final solution was deployed to an Amazon Snowball Edge device at an operating cost of $27 per million tokens, which makes the per-staff-officer cost of inference low enough to justify wide rollout rather than treating LLM access as a scarce resource. Because the architecture is CSP-agnostic, the same image can be moved onto existing Army hardware where Snowball isn't available, which protects the deployment from vendor lock-in and supply-chain disruption.
+The strategic value of this approach is that a Division or Corps no longer has to choose between deploying forward and giving their staff access to modern AI workflow tools. The capability travels with the unit on a ruggedized edge device, runs against unit-controlled data, and continues to function when the link back to garrison is degraded or denied. The pattern established here, which is hardware-agnostic design, RAG-grounded outputs, and edge-deployable inference at a known per-token cost, is directly transferable to other Army applications where disconnected operation and data sovereignty matter.
           `,
         },
         project5: {
-          title: "[Project Title 5]",
-          kicker: "[Short objective or social value statement]",
+          title: "Echelon of Automation",
           image: "assets/project5.png",
           alt: "Placeholder image for Project 5",
           body: `
-            <p>[Write the full project description here. Connect the project to a concrete engineering, technical, or organizational problem.]</p>
-            <p><strong>Role:</strong> [What did you personally do?]</p>
-            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
-            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+            Conventional discussion of accountability failures in U.S. military aid focuses on whether the units on the ground are following the regulations in front of them. The 2023 DoD OIG report on the Army's execution of over $34 billion in materiel aid to the Ukrainian Armed Forces takes exactly that approach, cataloguing tactical-level shortfalls in how units track personnel and equipment. This article set out to reframe the problem one level up: the accountability gaps the OIG observes are downstream symptoms of the information systems governing large-scale materiel aid transfer, not isolated unit-level lapses — and that distinction matters for how the U.S. prepares for future Irregular Warfare.
+Using the ongoing Ukraine aid effort as a case study, the article examines how the Army's existing information architecture for materiel accountability scales — or fails to scale — when the receiving end is a foreign partner force rather than a U.S. unit. Rather than evaluate the executing units against the regulations, it evaluates the regulations and their underlying systems against the operational reality those units face when handing mass quantities of equipment to a proxy on the front line, where the standard chain-of-custody assumptions built into Army property accountability doctrine no longer hold.
+The analysis surfaces a structural mismatch between the systems built to track materiel inside the U.S. force and the volume, speed, and end-state of transfers required for large-scale aid to a partner. [Insert your specific findings here — e.g., particular system gaps, doctrinal seams, or process points where the information architecture breaks down at scale.] The OIG's tactical-level recommendations, while valid on their own terms, cannot close that mismatch because the constraint is upstream of the units they audit.
+Materiel aid transfer is reframed here as an Irregular Warfare capability for near-peer competition, not an administrative function. The future U.S. ability to put mass quantities of materiel into the hands of proxy forces — Ukraine today, other partners against other adversaries tomorrow — will be constrained as much by the information systems that govern those transfers as by the materiel itself. Treating that infrastructure as strategic rather than clerical is the prerequisite for fighting the next irregular conflict at the scale and tempo the operational environment will demand.Opus 4.7Adaptive
           `,
         },
         project6: {
-          title: "[Project Title 6]",
-          kicker: "[Short objective or social value statement]",
+          title: "Measuring Service Contract Performance",
           image: "assets/project6.png",
           alt: "Placeholder image for Project 6",
           body: `
-            <p>[Write the full project description here. Use concise paragraphs that make your objective, contribution, and result easy to skim.]</p>
-            <p><strong>Role:</strong> [What did you personally do?]</p>
-            <p><strong>Skills/tools:</strong> [Relevant skills, software, methods, or equipment]</p>
-            <p><strong>Outcome:</strong> [Quantified result, test result, design evaluation, or lesson learned]</p>
+            Defense contracting discussions tend to center on weapons platforms — fighters, ships, tanks — and the long acquisition timelines that produce them. But by 2018 services accounted for over 41% of DoD contract obligations: equipment maintenance, logistics, software, server space, construction, and increasingly data analytics and cloud computing. Services are harder to define and measure than products, which makes performance evaluation across contracting offices systematically harder than it is for the platform side. This report set out to actually measure that performance and identify what drives the differences between offices.
+Built an empirical evaluation across roughly one million DoD contracts, isolating three factors hypothesized to influence service contract outcomes: the complexity of the service being procured, the contract-management capacity of the executing office, and the depth of prior working history between the vendor and the DoD contracting office. The methodology pushes past anecdote into a population-scale assessment of which structural variables actually correlate with performance, rather than treating each contract as an isolated case.
+Existing publicly available data failed to explain the large performance differences observed across contracting offices, exposing a transparency gap on contracting office capacity itself — DoD is not currently collecting or releasing the data needed to evaluate one of the variables that most plausibly drives outcomes. The relationship variable, however, came through clearly: vendors and contracting offices with longer shared histories tended to produce better results, indicating that repeated engagement is doing measurable work that one-shot competition does not.
+Reframes the DoD's "attract new firms for speed and agility" agenda — particularly the push toward data analytics and cloud providers — as incomplete on its own. Recruiting new partners is necessary but insufficient; the data shows that helping those partners build durable working relationships with specific contracting offices is where performance is actually generated. The corresponding policy lever is increased DoD transparency about contracting office capacity, which would give Congress and DoD leadership the empirical basis to argue for the workforce investments that the platform-centric view of acquisition has historically underweighted.
           `,
         },
       };
